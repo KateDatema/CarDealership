@@ -80,7 +80,7 @@ namespace CarDealershipProject.Controllers
 
         [HttpGet]
         [Route("year/{year}")]
-        public IEnumerable<Car> SearchYear(int year)
+        public IEnumerable<string> SearchYear(int year)
         {
             List<Car> result = new List<Car>();
             result = _context.Cars.Where(x => x.Year == year).ToList();
@@ -90,7 +90,12 @@ namespace CarDealershipProject.Controllers
                 result.Add(car);
             }
 
-            return result;
+            List<string> make = new List<string>();
+            foreach (Car c in result)
+            {
+                make.Add(c.Make);
+            }
+            return make;
         }
 
         [HttpGet]
