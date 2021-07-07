@@ -20,14 +20,15 @@ namespace CarDealershipProject.Controllers
             _context = context;
         }
 
-        //[HttpGet]
-        //[Route("filter/{make}/{model}/{year}/{color")]
-        //public IEnumerable<Car> SearchCom(string make = null, string model = null, int year = 0, string color =null)
-        //{
-        //    List<Car> result = new List<Car>();
-        //    result = _context.Cars.Where(x => x.Make.ToLower() == make.ToLower() && x.Make.ToLower() == make.ToLower() && x.Year == year && x.Color.ToLower() == color).ToList();
-        //    return result;
-        //}
+        //can't seem to get this working
+        [HttpGet]
+        [Route("filter/{make}/{model}/{year}/{color}")]
+        public IEnumerable<Car> SearchCom(string make = null, string model = null, int year = 0, string color = null)
+        {
+            List<Car> result = new List<Car>();
+            result = _context.Cars.Where(x => x.Make.ToLower() == make.ToLower() && x.Make.ToLower() == make.ToLower() && x.Year == year && x.Color.ToLower() == color).ToList();
+            return result;
+        }
 
 
         // GET: api/Cars
